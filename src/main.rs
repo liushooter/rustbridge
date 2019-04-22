@@ -1,3 +1,4 @@
+#[derive(PartialEq, Debug)] // necessary to compare enum values
 enum TrafficLight {
     Red,
     Yellow,
@@ -94,4 +95,13 @@ fn add_fifty(n: i32) -> i32 {
 fn err() {
     // RUST_BACKTRACE=1 cargo run
     panic!("raise err")
+}
+
+#[test]
+fn new_person_setup() {
+    // cargo test
+    let light = TrafficLight::Yellow;
+    assert!(light == TrafficLight::Yellow);
+    assert_eq!(light, TrafficLight::Yellow);
+    assert_ne!(light, TrafficLight::Red);
 }
