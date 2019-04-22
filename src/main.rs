@@ -1,3 +1,11 @@
+use std::num::ParseIntError;
+use std::string::String;
+
+enum GameType {
+    SinglePlayer,
+    MultiPlayer(u32),
+}
+
 #[derive(PartialEq, Debug)] // necessary to compare enum values
 enum TrafficLight {
     Red,
@@ -5,9 +13,9 @@ enum TrafficLight {
     Green,
 }
 
-enum GameType {
-    SinglePlayer,
-    MultiPlayer(u32),
+enum Option<T> {
+    Some(T),
+    None,
 }
 
 fn main() {
@@ -39,7 +47,6 @@ fn main() {
     println!("The color is {:#?}", color); // pretty debug
 
     // Vectors
-
     let mut prices = vec![30, 100, 2];
     prices[0] = 25;
     prices.push(40);
@@ -52,7 +59,6 @@ fn main() {
 
     let names = vec!["Carol", "Jake", "Marylou", "Bruce"];
     for name in names.iter() {
-
         println!("Hi {}!", name);
     }
 
@@ -85,12 +91,36 @@ fn main() {
         GameType::MultiPlayer(num) => println!("How about {}-player tag?", num),
     }
 
+    // Options
+    let numstr = "6";
+    let num = numstr.parse::<i32>();
+    let num = num.expect("should have a number");
+    println!("num + 5 = {}", num + 5);
+
+    let numstr = "florp";
+    let num = numstr.parse::<i32>();
+    let answer = match num {
+        Ok(n) => n + 5,
+        Err(_) => 0,
+    };
+
+    println!("Answer is {}", answer);
+
+    let aws = add_five_to_string("23".to_owned());
+    // expected struct `std::string::String`, found reference
+
+    println!("add_five_to_string Answer is {:?}", aws.unwrap());
+
 }
 
 fn add_fifty(n: i32) -> i32 {
     n + 50
 }
 
+fn add_five_to_string(s: String) -> Result<i32, std::num::ParseIntError> {
+    let ans = s.parse::<i32>()? + 5;
+    Ok(ans)
+}
 
 fn err() {
     // RUST_BACKTRACE=1 cargo run
