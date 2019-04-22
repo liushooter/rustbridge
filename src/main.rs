@@ -25,6 +25,13 @@ fn main() {
     // println!("The color is {}", color); // error
     println!("The color is {:?}", color); // debug
     println!("The color is {:#?}", color); // pretty debug
+
+    // Vectors
+
+    let mut prices = vec![30, 100, 2];
+    prices[0] = 25;
+    prices.push(40);
+    println!("All the prices are: {:?}", prices);
 }
 
 
