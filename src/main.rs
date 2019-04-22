@@ -105,3 +105,9 @@ fn new_person_setup() {
     assert_eq!(light, TrafficLight::Yellow);
     assert_ne!(light, TrafficLight::Red);
 }
+
+#[test]
+#[ignore]
+fn not_implemented_yet() {
+    assert_eq!(true, false);
+}
