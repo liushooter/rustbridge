@@ -19,6 +19,12 @@ fn main() {
         }
     }
 
+    // array
+    let mut color = [255, 0, 255];
+    color[0] = 100;
+    // println!("The color is {}", color); // error
+    println!("The color is {:?}", color); // debug
+    println!("The color is {:#?}", color); // pretty debug
 }
 
 
