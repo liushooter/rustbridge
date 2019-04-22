@@ -31,3 +31,9 @@ fn main() {
 fn add_fifty(n: i32) -> i32 {
     n + 50
 }
+
+
+fn err() {
+    // RUST_BACKTRACE=1 cargo run
+    panic!("raise err")
+}
