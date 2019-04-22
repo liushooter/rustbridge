@@ -43,6 +43,19 @@ fn main() {
 
         println!("Hi {}!", name);
     }
+
+    // Iterators
+    for i in (0..10).filter(|x| x % 2 == 0) {
+        println!("i = {}", i);
+    }
+
+    for j in (0..10).map(|x| x * x) {
+        println!("j = {}", j);
+    }
+
+    let sum = (0..10).fold(0, |acc, x| acc + x);
+    println!("sum = {}", sum);
+
 }
 
 
