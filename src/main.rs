@@ -32,6 +32,17 @@ fn main() {
     prices[0] = 25;
     prices.push(40);
     println!("All the prices are: {:?}", prices);
+
+    // looping
+    for i in 1..10 {
+        println!("Num {}", i);
+    }
+
+    let names = vec!["Carol", "Jake", "Marylou", "Bruce"];
+    for name in names.iter() {
+
+        println!("Hi {}!", name);
+    }
 }
 
 
