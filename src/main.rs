@@ -1,3 +1,14 @@
+enum TrafficLight {
+    Red,
+    Yellow,
+    Green,
+}
+
+enum GameType {
+    SinglePlayer,
+    MultiPlayer(u32),
+}
+
 fn main() {
     println!("Hello, world!");
 
@@ -56,8 +67,24 @@ fn main() {
     let sum = (0..10).fold(0, |acc, x| acc + x);
     println!("sum = {}", sum);
 
-}
+    // Enums
+    let light = TrafficLight::Green;
+    match light {
+        TrafficLight::Red => println!("STOP!"),
+        TrafficLight::Yellow => println!("Slow down!"),
+        TrafficLight::Green => println!("Go go go!"),
+    }
 
+    let game = GameType::MultiPlayer(4);
+
+    match game {
+        GameType::SinglePlayer => println!("How about solitaire?"),
+        GameType::MultiPlayer(2) => println!("How about checkers?"),
+        GameType::MultiPlayer(4) => println!("How about bridge?"),
+        GameType::MultiPlayer(num) => println!("How about {}-player tag?", num),
+    }
+
+}
 
 fn add_fifty(n: i32) -> i32 {
     n + 50
